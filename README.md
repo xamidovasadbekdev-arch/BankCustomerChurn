@@ -7,7 +7,7 @@ The steps to do an end-to-end project:
 2. Data Understanding ✅
 3. Data Cleaning ✅
 4. Exploratory Data Analysis ✅
-5. Feature Engineering ⏳
+5. Feature Engineering ✅
 6. Train Model ⏳
 7. Save model with joblib ⏳
 8. FastAPI Wrapping and Dockerizing ⏳
@@ -62,3 +62,7 @@ A correlation heatmap across all numeric columns at the end backed up everything
 #### Conclusion
 
 The pattern across the whole EDA section is pretty consistent: **engagement and relationship factors predict churn — financial and status factors mostly don't.** IsActiveMember, NumOfProducts, Balance, Geography, Age, and Gender all carry real signal. CreditScore, EstimatedSalary, HasCrCard, Card Type, Satisfaction Score, and Point Earned don't meaningfully separate churned customers from retained ones. Customers don't seem to leave because of their financial profile — they leave because of how engaged they are with the bank and how their product relationship is going.
+
+
+### 5. Feature Engineering
+First work i did was dropping unnecessary columns that were rowid, customerid, surname and complain. I dropped them as they have no effect on model's performance. Next, I encoded categorical columns into numerical ones. I changed gender into 1, 0 using binary encoding. Then encoded geography into 010, 100, 000 using one hot encoding with pd.get_dummies(drop_first=True). Lastly, I used ordinal encoding to encode card types into "SILVER": 0,"GOLD": 1,"PLATINUM": 2,"DIAMOND": 3 using mapping.

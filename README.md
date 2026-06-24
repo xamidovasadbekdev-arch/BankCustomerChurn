@@ -8,10 +8,8 @@ The steps to do an end-to-end project:
 3. Data Cleaning ✅
 4. Exploratory Data Analysis ✅
 5. Feature Engineering ✅
-6. Train Model ⏳
-7. Save model with joblib ⏳
-8. FastAPI Wrapping and Dockerizing ⏳
-9. Deploying ⏳
+6. Train Model ✅
+7. Save model with joblib ✅
 
 This is my another end-to-end project, and this time the focus was on going deeper into EDA — testing every variable against the target instead of just the obvious ones, and being honest when a variable turned out not to matter.
 
@@ -66,3 +64,6 @@ The pattern across the whole EDA section is pretty consistent: **engagement and 
 
 ### 5. Feature Engineering
 First work i did was dropping unnecessary columns that were rowid, customerid, surname and complain. I dropped them as they have no effect on model's performance. Next, I encoded categorical columns into numerical ones. I changed gender into 1, 0 using binary encoding. Then encoded geography into 010, 100, 000 using one hot encoding with pd.get_dummies(drop_first=True). Lastly, I used ordinal encoding to encode card types into "SILVER": 0,"GOLD": 1,"PLATINUM": 2,"DIAMOND": 3 using mapping.
+
+### 6. Modelling
+I trained a model using different algorithms: RandomForest, LogisticRegression, KNN, Xgboost. The best one was xgboost algorithms in accuracy and it was about 87 %
